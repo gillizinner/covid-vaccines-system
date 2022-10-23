@@ -3,11 +3,11 @@
 #How to install
 needed components: <br/>
 1. Install visual studio 2022 for asp.net web application(.Net framework).
-2. DataBase- MongoDB community server+MongoDB compass.
-3. DataBase Tools - MongoDB compass+ MongoDB shell + MongoDB tools.
+2. DataBase- MongoDB community server(ver 6.0)+MongoDB compass.
+3. DataBase Tools - MongoDB compass+ MongoDB shell(mongosh-1.6.0-win32-x64) + MongoDB tools(mongodb-database-tools-windows-x86_64-100.6.0).
 
 #Installation process of project
-1. Load project in visual studio - extract zip file and open CovidVaccinationSystem.sln in visual studio.
+1. Load project in visual studio - download extract zip file and open CovidVaccinationSystem.sln in visual studio.
 2. Create a mongodb database named "CovidVaccinesSystem" which containes collection "Members".
 3. Import the data for the members from the attached json file named "Members2.json".
 4. Run the project.
