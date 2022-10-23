@@ -1,0 +1,129 @@
+﻿@model CovidVaccinationSystem.Models.memberBE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using CovidVaccinationSystem.App_Start;
+@using MongoDB.Bson;
+@using MongoDB.Driver;
+@using MongoDB.Driver.Builders;
+<h2>Details</h2>
+
+<div>
+    <h4>Detailes Of Member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.idOfMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idOfMember)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.imgUrl)
+        </dt>
+
+        <dd>
+            <img src=@Model.imgUrl />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cellphoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cellphoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address.street)
+            @Html.DisplayFor(model => model.address.numOfBuilding)
+            @Html.DisplayFor(model => model.address.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfBirth)
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfPositiveResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfPositiveResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfRecovery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfRecovery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccinesArray)
+        </dt>
+        <dd>
+            <ol>
+                @foreach (var item in Model.vaccinesArray)
+                {
+                    <li>
+                        <ul>
+                            <li>
+                                <label style="font-weight:bold">maker of vaccine</label>
+                                <br />
+                                @item.makerOfVaccine
+                            </li>
+                            <li>
+                                <label style="font-weight:bold">date of vaccine</label>
+                                <br />
+                                @item.dateOfVaccine
+                            </li>
+                        </ul>
+                    </li>
+                }
+            </ol>
+
+
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { @id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

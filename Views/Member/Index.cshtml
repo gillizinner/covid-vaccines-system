@@ -1,0 +1,72 @@
+﻿@model IEnumerable<CovidVaccinationSystem.Models.memberBE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Of Members</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vaccinesArray)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            <ol>
+                @foreach (var vac in item.vaccinesArray)
+                {
+                    <li>
+                            <ul>
+                                <li>
+                                    <label style="font-weight:bold">maker of vaccine</label>
+                                    <br />
+                                    @vac.makerOfVaccine
+                                </li>
+                                <li>
+                                    <label style="font-weight:bold">date of vaccine</label>
+                                    <br />
+                                    @vac.dateOfVaccine
+                                </li>
+                            </ul>
+                    </li>
+}
+            </ol>
+        <td>
+            @*<td>
+        <ol>
+            @foreach (var dateOfVaccine in item.datesOfVaccines)
+            {
+                <li>@dateOfVaccine</li>
+            }
+        </ol>*@
+<td>
+            @Html.ActionLink("Edit", "Edit", new { @id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { @id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { @id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
